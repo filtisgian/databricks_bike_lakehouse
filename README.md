@@ -8,13 +8,13 @@ This repository contains a complete, real-world Data Lakehouse implementation bu
 This project follows the **Medallion Architecture**:
 
 
-####Bronze Layer – Raw Data
+#### Bronze Layer – Raw Data
 
 Store raw ingested data without any transformation.
 - Raw data ingestion
 - Schema inference and storage as Delta tables
 
-####Silver Layer – Cleaned Data
+#### Silver Layer – Cleaned Data
 
 Transform raw datasets into reliable structured tables.
 
@@ -31,7 +31,7 @@ Transform raw datasets into reliable structured tables.
 - Sanity Checks
 
 
-####Gold Layer – Business Model
+#### Gold Layer – Business Model
 
 Deliver analytics-ready datasets.
 - Dimensional Data Model (Business Transformation)
@@ -39,7 +39,7 @@ Deliver analytics-ready datasets.
 
 ----------
 
-###Technologies 
+### Technologies 
 - Databricks
 - Apache Spark
 - PySpark
