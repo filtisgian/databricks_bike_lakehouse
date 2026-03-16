@@ -63,7 +63,7 @@ Note: To run each Layer properly, I use orchestration notebooks (silver_orchestr
 - Clean and transform into Silver tables
 - Build business-ready Gold tables designed for analytics and reporting
 
-![Databricks ETL Pipeline](bike_lakehouse/etl_pipeline_v1.png)
+![Databricks ETL Pipeline](etl_pipeline_1.png)
 
 --------
 
