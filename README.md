@@ -35,9 +35,37 @@ Transform raw datasets into reliable structured tables.
 
 Deliver analytics-ready datasets.
 - Dimensional Data Model (Business Transformation)
-- Star Schema
+- Star Schema (3 tables: **fact_sales, dim_customers, dim_products**)
 
 ----------
+
+### Bonus adjustment
+
+**Silver Layer - silver_updated**
+
+Use **cleaning_data.py** file with reusable Python functions to reduce repetition.
+
+----------
+
+### Building the Pipeline
+
+**Current Setup**
+- 1 Bronze notebook
+- 6 Silver transformation notebooks
+- 3 Gold notebooks (dimensions and facts)
+
+Note: To run each Layer properly, I use orchestration notebooks (silver_orchestration & gold_orchestration), that trigger all notebooks of each layer.
+
+-------
+### Pipeline Workflow
+
+- Load raw dataset into Bronze tables
+- Clean and transform into Silver tables
+- Build business-ready Gold tables designed for analytics and reporting
+
+![Databricks ETL Pipeline](bike_lakehouse/etl_pipeline_v1.png)
+
+--------
 
 ### Technologies 
 - Databricks
@@ -66,6 +94,12 @@ This addition demonstrates how the Databricks pipeline can be integrated into a 
 
 ## Project Extension - Use Airflow and Astro
 
+**Without Airflow - Databricks Jobs only**
+
+![Databricks ETL Pipeline](bike_lakehouse/databricks_etl_pipeline.png)
+
+-------
+## Airflow
 
 ### Orchestration Architecture
 
@@ -101,6 +135,23 @@ Airflow DAG
    └── Job 2: Serving / Export
            Gold → PostgreSQL (JDBC)
 ```
+
+## Project Structure
+```
+databricks_bike_lakehouse/
+│
+├── bike_lakehouse
+│   ├── bronze_layer
+│   ├── silver_layer
+│   ├── gold_layer
+│   ├── serving (export to PostgreSQL)
+
+
+```
+
+### Airflow DAG
+
+![Databricks ETL Pipeline](airflow/databricks_etl-graph.png)
 
 ---
 
