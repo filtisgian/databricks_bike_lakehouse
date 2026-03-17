@@ -39,6 +39,12 @@ Deliver analytics-ready datasets.
 
 ----------
 
+### Data Model
+
+![Data Model](bike_lakehouse/Integration_model_v2.png)
+
+----------
+
 ### Bonus adjustment
 
 **Silver Layer - silver_updated**
