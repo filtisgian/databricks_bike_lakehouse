@@ -44,6 +44,27 @@ Deliver analytics-ready datasets.
 ![Data Model](bike_lakehouse/Integration_model_v2.png)
 
 ----------
+### Dashboards - Performance Analytics
+
+Examples:
+
+1. **Sales trend over time**
+
+![](dashboards/Monthly Total Sales Amount Over Time.png)
+
+2. **Sales by Product Category**
+
+![](dashboards/Sales by Product Category.png)
+
+3. **Monthly Sales Trend by Country**
+
+![](dashboards/Monthly Sales Trend by Country.png)
+
+4. **Total Sales Quantity by Product Subcategory**
+
+![](dashboards/Total Sales Quantity by Product Subcategory.png)
+
+----------
 
 ### Bonus adjustment
 
