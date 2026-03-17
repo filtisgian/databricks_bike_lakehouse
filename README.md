@@ -50,19 +50,19 @@ Examples:
 
 1. **Sales trend over time**
 
-![Monthly_sales](dashboards/Monthly Total Sales Amount Over Time.png)
+![Monthly_sales](dashboards/Monthly_Total_Sales_Amount_Over_Time.png)
 
 2. **Sales by Product Category**
 
-![Sales per Category](dashboards/Sales by Product Category.png)
+![Sales per Category](dashboards/Sales_by_Product_Category.png)
 
 3. **Monthly Sales Trend by Country**
 
-![Sales by country](dashboards/Monthly Sales Trend by Country.png)
+![Sales by country](dashboards/Monthly_Sales_Trend_by_Country.png)
 
 4. **Total Sales Quantity by Product Subcategory**
 
-![Quantity per product](dashboards/Total Sales Quantity by Product Subcategory.png)
+![Quantity per product](dashboards/Total_Sales_Quantity_by_Product_Subcategory.png)
 
 ----------
 
