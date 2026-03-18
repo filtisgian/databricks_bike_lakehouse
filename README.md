@@ -39,6 +39,20 @@ Deliver analytics-ready datasets.
 
 ----------
 
+####  Data Quality Layer
+
+A dedicated data quality layer is implemented between the Silver and Gold layers.
+
+Validation includes:
+
+- Null checks
+- Duplicate detection
+- Business rule validation
+
+The pipeline enforces data quality by failing fast if any validation rule is violated, preventing bad data from reaching the Gold layer.
+
+----------
+
 ### Data Model
 
 ![Data Model](bike_lakehouse/Integration_model_v2.png)
@@ -108,7 +122,7 @@ Note: To run each Layer properly, I use orchestration notebooks (silver_orchestr
 
 The core Databricks Medallion Architecture pipeline was developed as part of a Data Engineering Bootcamp led by **Data With Baraa**.
 
-The **Airflow orchestration layer and PostgreSQL export pipeline were designed and implemented independently as an extension to the original project.**
+The **Data Quality Checks, Airflow orchestration layer and PostgreSQL export pipeline were designed and implemented independently as an extension to the original project.**
 
 This addition demonstrates how the Databricks pipeline can be integrated into a real-world production workflow using:
 
@@ -171,6 +185,7 @@ databricks_bike_lakehouse/
 │   ├── bronze_layer
 │   ├── silver_layer
 │   ├── gold_layer
+|   ├── quality
 │   ├── serving (export to PostgreSQL)
 
 
