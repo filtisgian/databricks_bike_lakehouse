@@ -1,20 +1,40 @@
 # Databricks Data Lakehouse Project
 
-This repository contains a complete, real-world Data Lakehouse implementation built using **Databricks**, **Apache Spark**, **Delta Lake**, and **Airflow**.
+This repository contains a complete, real-world Data Lakehouse implementation 
+built using **Databricks**, **Apache Spark**, **Delta Lake**, and **Airflow**, 
+ingesting raw data through a **Bronze → Silver → Gold** Medallion Architecture 
+to produce analytics-ready tables.
 
 -------------------------------
-### Architecture
+
+## What I Built Independently
+
+> The core Medallion pipeline was completed as part of the *Data With Baraa*
+> Data Engineering Bootcamp. The following components were **designed and
+> implemented independently** as a production-ready extension:
+
+| Component | Description |
+|---|---|
+| ✅ Data Quality Layer | Null checks, duplicate detection, and business rule validation between Silver → Gold |
+| ✅ Airflow Orchestration | Full DAG with Astro Runtime triggering Databricks Workflows |
+| ✅ Docker Infrastructure | Local Airflow stack (Webserver, Scheduler, Triggerer, Metadata DB) |
+| ✅ PostgreSQL Serving Layer | JDBC export pipeline from Gold tables to PostgreSQL |
+
+---
+
+
+## Architecture
 
 This project follows the **Medallion Architecture**:
 
 
-#### Bronze Layer – Raw Data
+### Bronze Layer – Raw Data
 
 Store raw ingested data without any transformation.
 - Raw data ingestion
 - Schema inference and storage as Delta tables
 
-#### Silver Layer – Cleaned Data
+### Silver Layer – Cleaned Data
 
 Transform raw datasets into reliable structured tables.
 
@@ -31,7 +51,7 @@ Transform raw datasets into reliable structured tables.
 - Sanity Checks
 
 
-#### Gold Layer – Business Model
+### Gold Layer – Business Model
 
 Deliver analytics-ready datasets.
 - Dimensional Data Model (Business Transformation)
@@ -39,7 +59,7 @@ Deliver analytics-ready datasets.
 
 ----------
 
-####  Data Quality Layer
+###  Data Quality Layer
 
 A dedicated data quality layer is implemented between the Silver and Gold layers.
 
@@ -53,12 +73,12 @@ The pipeline enforces data quality by failing fast if any validation rule is vio
 
 ----------
 
-### Data Model
+## Data Model
 
 ![Data Model](bike_lakehouse/Integration_model_v2.png)
 
 ----------
-### Dashboards - Performance Analytics
+## Dashboards - Performance Analytics
 
 Examples:
 
@@ -80,7 +100,7 @@ Examples:
 
 ----------
 
-### Bonus adjustment
+## Bonus adjustment
 
 **Silver Layer - silver_updated**
 
@@ -88,7 +108,7 @@ Use **cleaning_data.py** file with reusable Python functions to reduce repetitio
 
 ----------
 
-### Building the Pipeline
+## Building the Pipeline
 
 **Current Setup**
 - 1 Bronze notebook
@@ -98,7 +118,7 @@ Use **cleaning_data.py** file with reusable Python functions to reduce repetitio
 Note: To run each Layer properly, I use orchestration notebooks (silver_orchestration & gold_orchestration), that trigger all notebooks of each layer.
 
 -------
-### Pipeline Workflow
+## Pipeline Workflow
 
 - Load raw dataset into Bronze tables
 - Clean and transform into Silver tables
@@ -108,7 +128,7 @@ Note: To run each Layer properly, I use orchestration notebooks (silver_orchestr
 
 --------
 
-### Technologies 
+## Technologies 
 - Databricks
 - Apache Spark
 - PySpark
@@ -116,20 +136,6 @@ Note: To run each Layer properly, I use orchestration notebooks (silver_orchestr
 - Delta Lake
 - Unity Catalog
 
------------
-
-### Acknowledgements
-
-The core Databricks Medallion Architecture pipeline was developed as part of a Data Engineering Bootcamp led by **Data With Baraa**.
-
-The **Data Quality Checks, Airflow orchestration layer and PostgreSQL export pipeline were designed and implemented independently as an extension to the original project.**
-
-This addition demonstrates how the Databricks pipeline can be integrated into a real-world production workflow using:
-
-- **Apache Airflow (Astro Runtime)** for orchestration
-- **Docker** for local infrastructure
-- **PostgreSQL** as a serving layer
-- **JDBC export pipelines**
 
 ----------
 
