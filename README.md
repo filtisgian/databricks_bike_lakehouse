@@ -15,7 +15,7 @@ to produce analytics-ready tables.
 
 | Component | Description |
 |---|---|
-| ✅ Data Quality Layer | Null checks, duplicate detection, and business rule validation between Silver → Gold |
+| ✅ Data Quality Layer | Null checks, duplicate detection, and business rule validation between Raw → Silver & Silver → Gold |
 | ✅ Airflow Orchestration | Full DAG with Astro Runtime triggering Databricks Workflows |
 | ✅ Docker Infrastructure | Local Airflow stack (Webserver, Scheduler, Triggerer, Metadata DB) |
 | ✅ PostgreSQL Serving Layer | JDBC export pipeline from Gold tables to PostgreSQL |
@@ -61,13 +61,16 @@ Deliver analytics-ready datasets.
 
 ###  Data Quality Layer
 
-A dedicated data quality layer is implemented between the Silver and Gold layers.
+A dedicated data quality layer is implemented between the Raw and Silver layers as well as between the Silver and Gold layers.
 
 Validation includes:
 
 - Null checks
 - Duplicate detection
 - Business rule validation
+
+Quality checks run **after transformation but before writing to Silver**.  
+If any check fails, the pipeline raises an AssertionError and Silver is **not updated**.
 
 The pipeline enforces data quality by failing fast if any validation rule is violated, preventing bad data from reaching the Gold layer.
 
